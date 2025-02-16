@@ -60,5 +60,17 @@ public class SortedList<E extends Comparable<? super E>> {
 		if (index < 0) return false;
 		internalList.remove(index);
 		return true;
-	}	
+	}
+
+	public List<E> asList() { 
+		return internalList; 
+	}
+	
+	public int size() { 
+		return internalList.size(); 
+	}
+
+	public String toString() { 
+		return internalList.toString(); 
+	} 
 }
