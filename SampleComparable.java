@@ -23,6 +23,11 @@ class SampleComparable implements Comparable<SampleComparable> {
 	public String toString() {
 		return name + "(" + id +")";
 	}
+
+	public static void resetNEXT_ID () { 
+		NEXT_ID = 0; 
+	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id, name);
