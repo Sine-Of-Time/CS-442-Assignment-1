@@ -1,14 +1,41 @@
 package assignment01;
 
-public class ClassAdapter<E extends Comparable<? super E>> extends 
+import java.util.List;
+
+public class ClassAdapter<E extends Comparable<? super E>> extends
 SortedList<E> implements SortedSet<E> {
-	
-	// Note because this is a subclass, this is a list and has 
-	// all the methods of SortedList
+	private final SortedList<E> internalSortedList = new SortedList<>();
 
 	@Override
-	public void add(E e) {
-		// add e if e is not contained in this list
-		// otherwise do nothing
+	public void add(E e)
+	{
+		if (!internalSortedList.contains(e))
+		{
+			internalSortedList.add(e);
+		}
+	}
+
+	@Override
+	public boolean contains(E e)
+	{
+		return internalSortedList.contains(e);
+	}
+
+	@Override
+	public boolean remove(E e)
+	{
+		return internalSortedList.remove(e);
+	}
+
+	@Override
+	public List<E> asList()
+	{
+		return internalSortedList.asList();
+	}
+
+	@Override
+	public int size()
+	{
+		return internalSortedList.size();
 	}
 }
