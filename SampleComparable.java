@@ -18,7 +18,9 @@ class SampleComparable implements Comparable<SampleComparable> {
 	}
 	@Override
 	public int compareTo(SampleComparable o) {
-		return name.compareTo(o.name);
+		int returnVal = name.compareTo(o.name);
+		if(returnVal == 0) returnVal = id - o.id;
+		return returnVal;
 	}
 	public String toString() {
 		return name + "(" + id +")";
