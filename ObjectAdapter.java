@@ -2,6 +2,8 @@ package assignment01;
 
 import java.util.List;
 
+//Testing push
+
 public class ObjectAdapter<E extends Comparable<? super E>> implements SortedSet<E> {
 	private SortedList<E> adaptee;
 	
