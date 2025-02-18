@@ -1,5 +1,6 @@
 package assignment01;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,13 +27,40 @@ public class SortedList<E extends Comparable<? super E>> {
 		internalList.add(index, e);
 	}
 
-	int binarySearchHigh(List<E> list, E e) {
-		return 0;
+	int binarySearchHigh(List<E> list, E e) {//Done by Kian F
+	    int left = 0; int right = list.size() - 1; int idx = -1; 
+
+	    while (left <= right) {
+	        int mid = (left + right) / 2; int cmp = e.compareTo(list.get(mid));
+
+	        if(cmp<0)right = mid - 1;
+	        else if(cmp>0)left = mid + 1;
+	        else {
+	        	idx = mid;
+	            left = mid + 1;
+	        }
+	    }
+	    if(idx>= 0)return idx  + 1; 
+	    else return -left-1;
 	}
 	
-	int binarySearchLow(List<E> list, E e) {
-		return 0;
+	int binarySearchLow(List<E> list, E e) { //Done by Kian F
+	    int left = 0; int right = list.size() - 1; int idx = -1;
+	    
+	    while (left <= right) {
+	        int mid = (left + right) / 2; int cmp = e.compareTo(list.get(mid));
+
+	        if(cmp<0)right = mid - 1;
+	        else if(cmp>0)left = mid + 1;
+	        else {
+	            idx = mid;
+	            right = mid - 1;
+	        }
+	    }
+	    if(idx>=0)return idx;
+	    else return -left - 1;
 	}
+
 
 	/**
 	 * Returns true if this list contains the specified element. More formally, 
